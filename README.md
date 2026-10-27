@@ -1,15 +1,31 @@
-# VOID//DRONE — Online Boss Rush (mecânicas completas)
+# VOID//DRONE 2D — Online Modes Update
 
-Esta atualização substitui o minijogo PvP separado pelo motor de jogo 2D original dentro do online. Cada jogador roda o Boss Rush normal no seu navegador: campanha/Infinitо/Pesadelo HELL/Contra-tempo/Treino, cutscenes, 64 chefes da campanha, padrões de tiro, tiros do jogador, dash, EMP, KIRA-7 e upgrades. O criador da sala escolhe o modo; o servidor aplica esse mesmo modo ao segundo jogador. O placar mostra score, chefes derrotados, vida e conclusão ao vivo. É uma corrida competitiva no jogo completo, não uma arena simplificada; as duas simulações são individuais, mas os dados de placar/sala são sincronizados.
+Esta versão mantém o motor de combate 2D do jogo (sprites, tiros, dash, cutscenes, chefes e KIRA-7) e acrescenta cinco filas online.
 
-## Atualizar o site Render que você já tem
-1. Baixe e extraia este ZIP.
-2. Abra o repositório GitHub que atualmente publica `void-drone-boss-rush-64-online.onrender.com`. Não crie um repositório diferente se quiser manter o endereço existente.
-3. No repositório, substitua os arquivos com o mesmo nome (`index.html`, `server.js`, `package.json`, `render.yaml`, `README.md`, `.gitignore`) pelos desta pasta, e faça **Commit changes**.
-4. No Render, abra o serviço existente e aguarde o deploy automático terminar com estado **Live**. O `render.yaml` mantém o nome `void-drone-boss-rush-64-online`.
-5. Abra o mesmo endereço HTTPS, selecione o modo desejado no menu, clique em **ONLINE VERSUS**, crie uma sala e compartilhe o código. O segundo jogador entra pelo mesmo site.
+## Filas online
+
+- **Co-op (2 jogadores):** os dois lutam contra o mesmo chefe e compartilham a barra de vida do chefe. EMP ativo.
+- **Boss Rush Race (2 jogadores):** cada piloto faz a própria campanha; o primeiro a morrer perde, e os chefes/pontuação servem como desempate quando ambos concluem. EMP ativo.
+- **Versus PvP (1×1):** os jogadores usam o drone, tiro e dash da campanha; o primeiro eliminado perde. EMP desativado.
+- **Battle Royale (até 10):** todos contra todos, último vivo vence. Cada sala recebe um dos seis mapas planetários. EMP desativado. O anfitrião pode começar com pelo menos 2 participantes ou aguardar a sala cheia.
+- **Deathmatch 2×2 (4 jogadores):** duas equipes de dois, tiros aliados não causam dano, respawn e vitória ao chegar a 15 eliminações. Exige 4 jogadores. EMP desativado.
+
+## Atualizar o site Render existente
+
+1. Extraia o ZIP.
+2. Abra no GitHub o mesmo repositório que publica `void-drone-boss-rush-64-online.onrender.com`.
+3. Substitua `index.html`, `server.js`, `package.json`, `render.yaml`, `README.md`, `.gitignore` e `COMO_PUBLICAR_O_SITE.html` pelos arquivos desta pasta.
+4. Faça **Commit changes**. O serviço existente deve iniciar um deploy automático.
+5. Aguarde o Render mostrar **Live**, depois recarregue o site com `Ctrl+F5`.
+
+## Hospedagem
+
+O serviço tem de ser um Web Service Node.js com WebSocket (não Static Site). `render.yaml` mantém o nome do serviço atual. `npm install` instala `ws` e `npm start` inicia `server.js`.
+
+## EMP
+
+O EMP fica disponível no Co-op, Boss Rush Race e modos PvE solo. Nas filas PvP (Versus, Battle Royale, Deathmatch) fica oculto no HUD e o servidor não processa dano via EMP.
 
 ## Observações
-- O combate usa o motor local do jogo normal; o servidor cuida de salas, modo escolhido, placar, progresso e ranking.
-- O ranking é gravado em `scores.json`; em hospedagem grátis, esse arquivo local pode ser perdido quando o serviço é recriado.
-- O servidor usa WebSocket na rota `/ws`. O serviço precisa estar publicado como Node.js (não como Static Site).
+
+A atualização não é publicada automaticamente na conta do usuário; é preciso enviar os arquivos para o repositório conectado. Não foi possível testar uma sessão WebSocket pública real neste ambiente, então publique e faça uma partida com dois navegadores para confirmar conectividade.

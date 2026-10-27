@@ -1,0 +1,11 @@
+VOID//DRONE — MODOS ONLINE
+
+1. CO-OP: 2 pilotos contra o mesmo chefe; EMP ligado.
+2. BOSS RUSH RACE: 2 pilotos jogam suas próprias corridas; o primeiro a morrer perde; EMP ligado.
+3. VERSUS PvP: duelo 1 contra 1; primeiro eliminado perde; EMP desligado.
+4. BATTLE ROYALE: até 10 pilotos num mapa planetário escolhido para a sala; último vivo vence; EMP desligado.
+5. DEATHMATCH 2x2: são necessários 4 pilotos; duas equipes, respawn, primeira equipe a 15 eliminações vence; EMP desligado.
+
+Todos os modos PvP mantêm o visual de nave, movimentação, mira/tiros e dash da campanha.
+
+Para atualizar o site existente, substitua os arquivos pelo conteúdo deste pacote no mesmo repositório GitHub conectado ao Render, faça Commit changes e aguarde o deploy ficar Live. O site público só muda depois desse deploy.

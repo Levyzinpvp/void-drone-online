@@ -1,16 +1,10 @@
 {
   "name": "void-drone-boss-rush-online",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
-  "description": "VOID//DRONE full 2D Boss Rush race multiplayer",
+  "description": "VOID//DRONE 2D online: co-op, boss race, duel, 10-player battle royale and 2v2 team deathmatch",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "dependencies": {
-    "ws": "^8.18.0"
-  }
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "dependencies": { "ws": "^8.18.0" }
 }
