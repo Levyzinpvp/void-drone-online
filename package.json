@@ -1,8 +1,8 @@
 {
-  "name": "void-drone-boss-rush-64-online",
-  "version": "1.0.0",
+  "name": "void-drone-boss-rush-online",
+  "version": "2.0.0",
   "private": true,
-  "description": "VOID//DRONE 2D boss rush with 64-boss campaign and online versus",
+  "description": "VOID//DRONE full 2D Boss Rush race multiplayer",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

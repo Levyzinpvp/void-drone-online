@@ -1,21 +1,15 @@
-# VOID//DRONE 2D — publicar o site e jogar online
+# VOID//DRONE — Online Boss Rush (mecânicas completas)
 
-Este pacote contém o jogo, o servidor de salas WebSocket e o placar. Para jogar online pela internet, publique este projeto num serviço que execute Node.js e aceite WebSocket. O guia `COMO_PUBLICAR_O_SITE.html` explica o processo usando GitHub + Render, sem precisar instalar ferramentas no computador.
+Esta atualização substitui o minijogo PvP separado pelo motor de jogo 2D original dentro do online. Cada jogador roda o Boss Rush normal no seu navegador: campanha/Infinitо/Pesadelo HELL/Contra-tempo/Treino, cutscenes, 64 chefes da campanha, padrões de tiro, tiros do jogador, dash, EMP, KIRA-7 e upgrades. O criador da sala escolhe o modo; o servidor aplica esse mesmo modo ao segundo jogador. O placar mostra score, chefes derrotados, vida e conclusão ao vivo. É uma corrida competitiva no jogo completo, não uma arena simplificada; as duas simulações são individuais, mas os dados de placar/sala são sincronizados.
 
-## Guia rapidíssimo
-1. Extraia o ZIP.
-2. Entre em https://github.com/new e crie um repositório chamado `void-drone-online`.
-3. No repositório, escolha **Add file → Upload files** e envie os arquivos que estão dentro desta pasta (incluindo `index.html`, `server.js`, `package.json`, `render.yaml` e `.gitignore`). Faça o commit.
-4. Entre em https://dashboard.render.com/ e escolha **New + → Blueprint**.
-5. Conecte o GitHub, selecione o repositório `void-drone-online` e clique em **Deploy Blueprint**.
-6. Espere o serviço ficar **Live** e abra o endereço `https://...onrender.com` mostrado pelo Render.
-7. No jogo, abra **ONLINE VERSUS**. Um jogador cria a sala e envia o código; o outro abre o mesmo site e entra com esse código.
+## Atualizar o site Render que você já tem
+1. Baixe e extraia este ZIP.
+2. Abra o repositório GitHub que atualmente publica `void-drone-boss-rush-64-online.onrender.com`. Não crie um repositório diferente se quiser manter o endereço existente.
+3. No repositório, substitua os arquivos com o mesmo nome (`index.html`, `server.js`, `package.json`, `render.yaml`, `README.md`, `.gitignore`) pelos desta pasta, e faça **Commit changes**.
+4. No Render, abra o serviço existente e aguarde o deploy automático terminar com estado **Live**. O `render.yaml` mantém o nome `void-drone-boss-rush-64-online`.
+5. Abra o mesmo endereço HTTPS, selecione o modo desejado no menu, clique em **ONLINE VERSUS**, crie uma sala e compartilhe o código. O segundo jogador entra pelo mesmo site.
 
-## Configuração automática
-O arquivo `render.yaml` define o serviço Node, o comando de instalação `npm install`, o comando de inicialização `npm start` e o health check `/`.
-
-## Importante
-- Este ZIP não publica o site por conta própria: o proprietário precisa entrar em GitHub/Render e autorizar o deploy.
-- O serviço gratuito pode suspender-se quando fica sem uso; o primeiro acesso após um período parado pode demorar.
-- O ranking usa um arquivo local do servidor e pode ser apagado quando a instância gratuita reinicia ou é recriada. Para manter o ranking permanentemente, será necessário armazenamento persistente ou banco de dados.
-- O jogo tem multiplayer online de 2 jogadores por sala; ambos precisam usar o mesmo endereço de site publicado.
+## Observações
+- O combate usa o motor local do jogo normal; o servidor cuida de salas, modo escolhido, placar, progresso e ranking.
+- O ranking é gravado em `scores.json`; em hospedagem grátis, esse arquivo local pode ser perdido quando o serviço é recriado.
+- O servidor usa WebSocket na rota `/ws`. O serviço precisa estar publicado como Node.js (não como Static Site).
